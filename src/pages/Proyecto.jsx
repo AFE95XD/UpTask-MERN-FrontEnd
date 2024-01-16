@@ -19,10 +19,12 @@ const Proyecto = () => {
 
   const { nombre } = proyecto;
 
+  if (cargando) return "Cargando...";
+
   const { msg } = alerta;
 
-  return cargando ? (
-    "Cargando..."
+  return msg && alerta.error ? (
+    <Alerta alerta={alerta} />
   ) : (
     <>
       <div className="flex justify-between">
